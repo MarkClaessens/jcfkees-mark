@@ -10,12 +10,14 @@ package woordenapplicatie.gui;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Set;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import woordenapplicatie.AantalWoorden;
+import woordenapplicatie.SorteerWoorden;
 
 /**
  * FXML Controller class
@@ -69,8 +71,16 @@ public class WoordenController implements Initializable {
     }
 
     @FXML
-    private void sorteerAction(ActionEvent event) {
-         throw new UnsupportedOperationException("Not supported yet."); 
+    private void sorteerAction(ActionEvent event) {         
+         SorteerWoorden SW = new SorteerWoorden(taInput.getText());
+         Set<String> woordenlijst = SW.getSorteerVerschillendeWoorden();
+         String nieuwtekst = "";
+         for(String woord : woordenlijst)
+         {
+             System.out.println(woord);
+             nieuwtekst = nieuwtekst + woord + "\n";
+         }
+         taOutput.setText(nieuwtekst);
     }
 
     @FXML
