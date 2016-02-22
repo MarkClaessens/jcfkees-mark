@@ -11,4 +11,16 @@ package woordenapplicatie;
  */
 public class FrequentieWoorden {
     
+    private String[] woorden;
+    
+    public FrequentieWoorden(String tekst){     
+        tekst = tekst.toLowerCase();
+        tekst = tekst.replaceAll(",", "");
+        tekst = tekst.replaceAll("\n", " ");    
+        this.woorden = tekst.split(" ");
+    }
+    
+    public String telWoorden(){
+        return null;
+    }
 }
