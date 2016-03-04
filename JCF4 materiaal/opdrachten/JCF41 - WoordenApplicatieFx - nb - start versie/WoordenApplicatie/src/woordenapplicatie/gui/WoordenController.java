@@ -9,6 +9,8 @@ package woordenapplicatie.gui;
 
 
 import java.net.URL;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.Set;
@@ -18,6 +20,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import woordenapplicatie.AantalWoorden;
+import woordenapplicatie.ConcordinatieWoorden;
 import woordenapplicatie.FrequentieWoorden;
 import woordenapplicatie.SorteerWoorden;
 
@@ -31,8 +34,8 @@ public class WoordenController implements Initializable {
    private static final String DEFAULT_TEXT =   "Een, twee, drie, vier\n" +
                                                 "Hoedje van, hoedje van\n" +
                                                 "Een, twee, drie, vier\n" +
-                                                "Hoedje van papier\n";
-                                                /*"\n" +
+                                                "Hoedje van papier\n" +
+                                                "\n" +
                                                 "Heb je dan geen hoedje meer\n" +
                                                 "Maak er één van bordpapier\n" +
                                                 "Eén, twee, drie, vier\n" +
@@ -46,7 +49,7 @@ public class WoordenController implements Initializable {
                                                 "En als het hoedje dan niet past\n" +
                                                 "Zetten we 't in de glazenkas\n" +
                                                 "Een, twee, drie, vier\n" +
-                                                "Hoedje van papier";*/
+                                                "Hoedje van papier";
     
     @FXML
     private Button btAantal;
@@ -93,7 +96,21 @@ public class WoordenController implements Initializable {
 
     @FXML
     private void concordatieAction(ActionEvent event) {
-         throw new UnsupportedOperationException("Not supported yet."); 
-    }
-   
+        ConcordinatieWoorden CW = new ConcordinatieWoorden(taInput.getText());
+        Map<String, Set<Integer>> woordregels = CW.getConcordantie();
+        
+        for (String key : woordregels.keySet()) 
+        {
+            String woord = key + ": [";
+            for (int i : woordregels.get(key)) 
+            {
+                woord += String.valueOf(i) + ", ";
+            }
+            woord = woord.substring(0, woord.length() - 2);
+            woord += "]\n";
+            taOutput.appendText(woord);
+        }
+    } 
 }
+   
+
