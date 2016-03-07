@@ -24,13 +24,16 @@ public class ConcordinatieWoorden {
     {      
        this.tekst = tekst; 
        this.tekst = tekst.toLowerCase();
-       this.tekst = tekst.replaceAll(",", "");
-       this.tekst = tekst.replaceAll("\n", " ");
-       this.tekst = tekst.replaceAll("é", "e");
+       this.tekst.replaceAll(",", "");
+       this.tekst.replaceAll("\n", " ");
+       this.tekst.replaceAll("é", "e");
     }
     
     public Map<String, Set<Integer>> getConcordantie()
     {
+        tekst = tekst.replaceAll(",", "");
+        tekst = tekst.replaceAll("\n", "\n ");
+        tekst = tekst.replaceAll("é", "e");
         woordregels = new HashMap<>();
         int regel = 1;
         for (String woord : tekst.split(" ")) 
