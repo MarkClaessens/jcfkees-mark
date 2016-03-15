@@ -31,13 +31,17 @@ public class ConcordinatieWoorden {
     
     public Map<String, Set<Integer>> getConcordantie()
     {
+        String nieuwetekst = "";
+        nieuwetekst = tekst.replaceAll(",", "");
+        nieuwetekst = nieuwetekst.replaceAll("\n", " \n");
+        nieuwetekst = nieuwetekst.replaceAll("é", "e");
         woordregels = new HashMap<>();
         int regel = 1;
-        for (String woord : tekst.split(" ")) 
+        for (String woord : nieuwetekst.split(" ")) 
         {
             if (woord.contains("\n")) {
                 regel++;
-                woord = woord.replace("\n", "");
+                woord = woord.replace("\n", " ");
             }
             if (woordregels.containsKey(woord)) 
             {
@@ -47,7 +51,7 @@ public class ConcordinatieWoorden {
             {
                 Set<Integer> regellijst = new HashSet<>();
                 regellijst.add(regel);
-                woordregels.put(woord, regellijst);
+                woordregels.put(woord.trim(), regellijst);
             }            
         }
         return woordregels;
