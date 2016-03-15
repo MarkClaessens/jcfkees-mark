@@ -96,6 +96,7 @@ public class WoordenController implements Initializable {
 
     @FXML
     private void concordatieAction(ActionEvent event) {
+        taOutput.setText("");
         ConcordinatieWoorden CW = new ConcordinatieWoorden(taInput.getText());
         Map<String, Set<Integer>> woordregels = CW.getConcordantie();
         
