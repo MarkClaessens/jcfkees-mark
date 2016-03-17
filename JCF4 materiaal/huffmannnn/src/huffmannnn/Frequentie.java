@@ -27,7 +27,7 @@ public class Frequentie {
         this.zin = tekst.replaceAll(" ", "");
     }
     
-    public String telWoorden(){
+    public Map<String, Integer> telWoorden(){
         Map<String, Integer> woordenMetAantal = new HashMap<String, Integer>();    
         int i = 0;
         while(i < zin.length()){
@@ -49,7 +49,7 @@ public class Frequentie {
             tekst = tekst + entry.getKey() + ": " + entry.getValue() + "\n";
         }
        
-        return tekst;
+        return sorted_map;
     }
   
     public static <K, V extends Comparable<? super V>> Map<K, V> 
