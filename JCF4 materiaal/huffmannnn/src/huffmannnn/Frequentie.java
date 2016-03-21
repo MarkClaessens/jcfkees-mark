@@ -24,7 +24,7 @@ public class Frequentie {
     private String zin;
     
     public Frequentie(String tekst){     
-        this.zin = tekst.replaceAll(" ", "");
+       this.zin = tekst;//.replaceAll(" ", "");
     }
     
     public Map<String, Integer> telWoorden(){
