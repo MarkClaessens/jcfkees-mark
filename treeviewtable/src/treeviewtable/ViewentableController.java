@@ -133,7 +133,7 @@ public class ViewentableController implements Initializable {
             {
                 for(Categorie cat : cato.getCategorie())
                 {
-                    TreeItem subcategorie = new TreeItem(cato);
+                    TreeItem subcategorie = new TreeItem(cat);
                     TreeItem eten = new TreeItem(food);
                     subcategorie.getChildren().add(eten);
                     categorie.getChildren().add(subcategorie);
