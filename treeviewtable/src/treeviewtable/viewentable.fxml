@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="treeviewtable.ViewentableController">
+   <children>
+      <TreeView fx:id="TVlijst" editable="true" layoutX="23.0" layoutY="25.0" prefHeight="200.0" prefWidth="200.0" />
+      <Button fx:id="BTNvoegtoe" layoutX="85.0" layoutY="326.0" mnemonicParsing="false" onAction="#maaketen" text="voeg toe" />
+      <TextField fx:id="TFnaam" layoutX="85.0" layoutY="236.0" />
+      <Label layoutX="22.0" layoutY="240.0" text="naam" />
+      <Label layoutX="23.0" layoutY="271.0" text="categorie" />
+      <TextField fx:id="TFcategorie" layoutX="85.0" layoutY="267.0" />
+      <TextField fx:id="TFsubcategorie" layoutX="85.0" layoutY="301.0" />
+      <Label layoutX="14.0" layoutY="305.0" text="subcategorie" />
+      <Button fx:id="BTNchange" layoutX="234.0" layoutY="361.0" mnemonicParsing="false" onAction="#verandereten" text="change" />
+      <TextField fx:id="TFchange" layoutX="85.0" layoutY="361.0" />
+      <TableView fx:id="TVklasgenoot" editable="true" layoutX="289.0" layoutY="25.0" prefHeight="200.0" prefWidth="227.0">
+        <columns>
+          <TableColumn fx:id="TCnaam" prefWidth="75.0" text="naam" />
+          <TableColumn fx:id="TCklas" prefWidth="75.0" text="klas" />
+            <TableColumn fx:id="TCsstudierichting" prefWidth="75.0" text="richting" />
+        </columns>
+      </TableView>
+      <TextField fx:id="TFnaamklas" layoutX="293.0" layoutY="236.0" />
+      <TextField fx:id="TFklas" layoutX="293.0" layoutY="267.0" />
+      <TextField fx:id="TFrichting" layoutX="293.0" layoutY="301.0" />
+      <Button fx:id="BTNaddklasgenoot" layoutX="464.0" layoutY="236.0" mnemonicParsing="false" onAction="#maakklasgenoot" text="voeg toe" />
+      <Label layoutX="248.0" layoutY="240.0" text="naam" />
+      <Label layoutX="248.0" layoutY="271.0" text="klas" />
+      <Label layoutX="248.0" layoutY="305.0" text="richting" />
+   </children>
+</AnchorPane>
